@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Silent Reflection Pack v1｜數位資源導覽系統</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/src/index.css">
+</head>
+
+<body class="antialiased">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand-section">
+                <div class="brand-logo">
+                    <svg class="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                        </path>
+                    </svg>
+                    <span>Antigravity Reflection</span>
+                </div>
+                <p class="text-[9px] text-slate-500 mt-2 font-bold tracking-[0.3em] uppercase">V1.0 Educator Suite</p>
+            </div>
+
+            <nav class="flex-1 overflow-y-auto pr-2 custom-scrollbar">
+                <button onclick="showSection('origin')" id="link-origin" class="nav-btn text-amber-200/80">
+                    <span class="nav-num">🌱</span> 設計緣起-我們走過的路
+                </button>
+                <button onclick="showSection('ai-tools')" id="link-ai-tools"
+                    class="nav-btn text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200 font-bold border border-amber-500/30 hover:bg-amber-500/10 hover:border-amber-500">
+                    <span class="nav-num">✨</span> AI 智慧引導助手
+                </button>
+                <button onclick="showSection('root')" id="link-root" class="nav-btn active">
+                    <span class="nav-num">00</span> 使用說明
+                </button>
+
+                <div class="nav-group-label">01 教師引導手冊</div>
+                <button onclick="showSection('tg1')" id="link-tg1" class="nav-btn italic">
+                    <span class="nav-num">A1</span> 在黑暗中感覺重量
+                </button>
+                <button onclick="showSection('tg2')" id="link-tg2" class="nav-btn italic">
+                    <span class="nav-num">A2</span> 看不見彼此的善意
+                </button>
+                <button onclick="showSection('tg3')" id="link-tg3" class="nav-btn italic">
+                    <span class="nav-num">A3</span> 寫給未來的情書
+                </button>
+                <button onclick="showSection('tg4')" id="link-tg4" class="nav-btn italic">
+                    <span class="nav-num">A4</span> 選擇放下的勇氣
+                </button>
+
+                <div class="nav-group-label">02 學生反思工作紙</div>
+                <button onclick="showSection('ss-all')" id="link-ss-all"
+                    class="nav-btn font-bold text-white bg-white/5">
+                    <span class="nav-num">📥</span> 檔案下載區：合併版工作紙
+                </button>
+                <div class="ml-4 border-l border-slate-700 mt-2">
+                    <button onclick="showSection('ss1')" id="link-ss1" class="nav-btn">
+                        <span class="nav-num">S1</span> 重量探測單
+                    </button>
+                    <button onclick="showSection('ss2')" id="link-ss2" class="nav-btn">
+                        <span class="nav-num">S2</span> 善意觀察紀錄紙
+                    </button>
+                    <button onclick="showSection('ss3')" id="link-ss3" class="nav-btn">
+                        <span class="nav-num">S3</span> 時空信封紙
+                    </button>
+                    <button onclick="showSection('ss4')" id="link-ss4" class="nav-btn">
+                        <span class="nav-num">S4</span> 釋放清單單
+                    </button>
+                </div>
+
+                <button onclick="showSection('appendices')" id="link-appendices" class="nav-btn">
+                    <span class="nav-num">03</span> 附錄：時間配置
+                </button>
+            </nav>
+
+            <div class="mt-auto py-6 border-t border-slate-800 flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                <span class="text-[10px] tracking-widest uppercase font-bold text-slate-600">Sync Status: Ready</span>
+            </div>
+        </aside>
+
+        <!-- Main Content (Added bg-zen classes) -->
+        <main class="main-content scroll-smooth bg-zen-stone">
+
+            <!-- 00_Overview -->
+            <section id="root" class="content-section bg-zen-stone">
+                <div class="content-card">
+                    <div class="badge-row">
+                        <span class="type-badge">OVERVIEW</span>
+                    </div>
+                    <header class="section-header">
+                        <h1
+                            class="text-3xl md:text-5xl font-black mb-6 tracking-tight drop-shadow-lg text-slate-200 whitespace-nowrap">
+                            為校園創造<span class="text-amber-500 mx-2">不評價的留白</span>
+                        </h1>
+                        <p class="text-xl text-slate-100 font-light max-w-2xl leading-relaxed">
+                            這套工具包不是要替代課程，而是要提供一種深度呼吸。我們邀請導師在緊湊的校園生活中，撥出 15 到 25 分鐘，給彼此一個誠實面對靈魂的機會。
+                        </p>
+                    </header>
+
+                    <div class="action-grid">
+                        <div class="action-card">
+                            <h4 class="font-bold text-lg mb-3">📦 第一步：環境營造</h4>
+                            <p class="text-sm text-slate-500">關上燈、或是邀請學生稍微放下課桌上的筆具。安靜是這個工具包最重要的肥料。</p>
+                        </div>
+                        <div class="action-card">
+                            <h4 class="font-bold text-lg mb-3">🎙️ 第二步：溫柔引導</h4>
+                            <p class="text-sm text-slate-500">閱讀 01 單元的逐字稿。重點在於語速要慢，讓空間裡的每個字都有落地的時間。</p>
+                        </div>
+                        <div class="action-card">
+                            <h4 class="font-bold text-lg mb-3">📝 第三步：書寫梳理</h4>
+                            <p class="text-sm text-slate-500">派發 02 單元的工作紙。這裡沒有標準答案，任何不完美的筆畫都是真實的。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Origin Story -->
+            <section id="origin" class="content-section hidden bg-zen-stone">
+                <div class="content-card">
+                    <div class="badge-row">
+                        <span class="type-badge">DESIGN STORY</span>
+                        <span class="text-slate-400 text-[10px] font-mono tracking-widest">ORIGIN</span>
+                    </div>
+
+                    <div class="border-l-4 border-amber-500 pl-6 mb-10">
+                        <h2 class="text-3xl font-bold leading-relaxed text-amber-50 tracking-wide">
+                            辨識生命重量，試著看見自己，也感知別人；<br>
+                            <span class="text-amber-200">方向在這裡，也在遠方。</span>
+                        </h2>
+                    </div>
+
+                    <div class="prose prose-invert max-w-none text-slate-100 leading-relaxed space-y-6">
+                        <p class="font-serif italic text-xl text-white font-medium opacity-100">
+                            青春期是一段既耀眼、又充滿拉扯的旅程。有些重量來自課業，有些來自人際關係，有些是對未來的徬徨，也有些是對自己的不確定。
+                        </p>
+                        <p class="text-lg">
+                            我們並不急著要孩子「說清楚」或「想通」。在這個活動裡，我們讓孩子在低燈光、靜默、流動的空間中慢慢走、慢慢感受、慢慢被看見。我希望他們能在班級裡，感覺到自己的重量、彼此的重量，而這些重量不是壓垮人，而是撐起一張網。
+                        </p>
+
+                        <div class="my-10 pl-6 border-l-2 border-amber-500 space-y-4">
+                            <p class="text-amber-300 font-bold mb-4 text-xl">我們陪著他們聽見一些句子：</p>
+                            <p class="text-slate-200 hover:text-white transition cursor-default font-medium">
+                                「最近的我，其實有點累，但不太知道為什麼。」</p>
+                            <p class="text-slate-200 hover:text-white transition cursor-default font-medium">
+                                「我正在學習，怎麼在不完美裡繼續走。」</p>
+                            <p class="text-slate-200 hover:text-white transition cursor-default font-medium">
+                                「我允許自己，暫時不知道下一步。」</p>
+                            <p class="text-slate-200 hover:text-white transition cursor-default font-medium">
+                                「我有時候選擇安靜，是在照顧自己。」</p>
+                            <p class="text-slate-200 hover:text-white transition cursor-default font-medium">
+                                「我有時候不知道，自己是被接住的，還是被忽略的。」</p>
+                            <p class="text-slate-200 hover:text-white transition cursor-default font-medium">
+                                「我知道自己其實可以更努力，但現在有點卡住。」</p>
+                            <p class="text-slate-200 hover:text-white transition cursor-default font-medium">
+                                「我心裡有一些話，但不確定什麼時候說才是對的。」</p>
+                        </div>
+
+                        <p>
+                            這些句子不要求答案，全班用腳步走向「很像我」、「有一點」、「不太像」、「不知道」的四個 “島”。圍繞著島邊是跟我一樣的人，在行走的交織中也感受到總有別人朝著不同的方向。
+                        </p>
+                        <p>
+                            最後，四個島轉變成「祝福站」，他們靜靜寫下了一些話代表「勇氣」、「安靜」、「信任」、「未來」的話語，給自己也給別人。
+                        </p>
+
+                        <div class="bg-white/5 p-6 rounded-xl mt-8 border border-white/10">
+                            <p class="italic text-amber-100">
+                                「你寫的，不一定會被誰拿走，但都是這個班的一部分，即使是空白也有力量。」
+                            </p>
+                        </div>
+
+                        <p class="text-right text-sm text-slate-500 mt-4">
+                            —— 那是一個沒有掌聲、沒有歡呼的時刻，最後我們安靜地離開教室，把冬天留在心裡。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TG1: Weight -->
+            <section id="tg1" class="content-section hidden bg-zen-stone">
+                <div class="content-card">
+                    <div class="badge-row">
+                        <span class="type-badge">TEACHER GUIDE</span>
+                        <span class="text-slate-400 text-[10px] font-mono">Act1_在黑暗中感覺重量.pdf</span>
+                    </div>
+                    <h2 class="text-4xl font-bold mb-10">在黑暗中感覺自己的重量</h2>
+                    <div class="quote-box serif">
+                        「請試著閉上眼睛... 或只是盯著桌上的一個點。想像你正背著一個隱形的背包...
+                        裡面裝著這週所有的在意。感覺一下，重量在哪裡？是在肩膀、後背，還是胸口？不需要急著丟掉它，只要誠實地承認：它現在正待在你身上。」
+                    </div>
+                    <div class="mt-12">
+                        <h4 class="font-bold text-slate-800 mb-6 flex items-center gap-2">
+                            <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            教學策略建議
+                        </h4>
+                        <div class="grid md:grid-cols-2 gap-8 text-sm text-slate-600">
+                            <div class="p-6 bg-slate-50 rounded-2xl">
+                                <p class="font-bold text-slate-800 mb-2">具象化練習</p>
+                                告訴學生：壓力有時候就像石頭，你不看它，它也會重。我們現在只是給這顆石頭一個名字。
+                            </div>
+                            <div class="p-6 bg-slate-50 rounded-2xl">
+                                <p class="font-bold text-slate-800 mb-2">零評價原則</p>
+                                強調這不是在比賽誰背得多，也不是在檢討為什麼要背這東西。單純的「看到」就是進步。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TG2: Kindness -->
+            <section id="tg2" class="content-section hidden bg-zen-stone">
+                <div class="content-card">
+                    <div class="badge-row">
+                        <span class="type-badge">TEACHER GUIDE</span>
+                        <span class="text-slate-400 text-[10px] font-mono">Act2_看不見彼此的善意.pdf</span>
+                    </div>
+                    <h2 class="text-4xl font-bold mb-10">看不見彼此，卻能看見善意</h2>
+                    <div class="quote-box serif">
+                        「在安靜的教室裡，其實善意一直在流動。回想這週，有沒有某個同學的一個小動作，讓你感到溫暖？可能是一個幫忙拿筆的動作，或是一個安靜的等待。現在，請在腦海中重播這個畫面。」
+                    </div>
+
+                    <div class="mt-12 space-y-8">
+                        <div>
+                            <h4 class="font-bold text-slate-800 mb-4 flex items-center gap-2">
+                                <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                                    <path fill-rule="evenodd"
+                                        d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                覺察焦點：非語言的連結
+                            </h4>
+                            <p class="text-slate-600">引導學生不去關注誰「幫助」了誰，而是去關注那個「溫暖的瞬間」。練習將注意力從自己的壓力，轉向周遭微小的、積極的連結。</p>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="p-6 border border-slate-100 rounded-xl">
+                                <h5 class="font-bold text-slate-700 mb-2">引導指令範例</h5>
+                                <p class="text-sm text-slate-500 italic">「不需要驚天動地的好事。也許只是有人幫你撿起一塊橡皮擦，或者在走廊上對你點了點頭。」</p>
+                            </div>
+                            <div class="p-6 border border-slate-100 rounded-xl">
+                                <h5 class="font-bold text-slate-700 mb-2">心理建設</h5>
+                                <p class="text-sm text-slate-500">這個練習有助於對抗「隧道效應」（Tunnel Vision），讓處於壓力下的學生能重新看見周遭的支持系統。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TG3: Future Letter -->
+            <section id="tg3" class="content-section hidden bg-zen-stone">
+                <div class="content-card">
+                    <div class="badge-row">
+                        <span class="type-badge">TEACHER GUIDE</span>
+                        <span class="text-slate-400 text-[10px] font-mono">Act3_寫給未來的情書.pdf</span>
+                    </div>
+                    <h2 class="text-4xl font-bold mb-10">寫給一年後的自己：穿越時空的溫柔</h2>
+                    <div class="quote-box serif">
+                        「想像一年後的你，正坐在某個安靜的角落，讀著現在的你寫給他的信。那個未來的你已經度過了這些挑戰。你想對他說什麼？不是要他達成什麼目標，而是想給他什麼樣的安慰、或者是提醒他不要忘記現在的哪一份勇氣？」
+                    </div>
+
+                    <div class="mt-12">
+                        <h4 class="font-bold text-slate-800 mb-6">活動執行步驟</h4>
+                        <ol class="space-y-6 relative border-l border-slate-200 ml-3">
+                            <li class="pl-8 relative">
+                                <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-amber-400"></span>
+                                <h5 class="font-bold text-slate-700">1. 時空跳躍（3分鐘）</h5>
+                                <p class="text-sm text-slate-500 mt-1">請學生閉眼，詳細想像一年後的今天。天氣如何？身邊有誰？當他們回頭看現在的自己，會是什麼表情？
+                                </p>
+                            </li>
+                            <li class="pl-8 relative">
+                                <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-200"></span>
+                                <h5 class="font-bold text-slate-700">2. 書寫信件（10分鐘）</h5>
+                                <p class="text-sm text-slate-500 mt-1">不要求格式，不檢查錯字。這是最私密的對話。鼓勵學生寫得具體，例如描述現在正在經歷的一件困難事。
+                                </p>
+                            </li>
+                            <li class="pl-8 relative">
+                                <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-200"></span>
+                                <h5 class="font-bold text-slate-700">3. 封存儀式（2分鐘）</h5>
+                                <p class="text-sm text-slate-500 mt-1">請學生將紙張對折再對折。這是一個象徵性的「封存」，代表這份情緒已被妥善安放，暫時不需掛心。</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TG4: Letting Go -->
+            <section id="tg4" class="content-section hidden bg-zen-stone">
+                <div class="content-card">
+                    <div class="badge-row">
+                        <span class="type-badge">TEACHER GUIDE</span>
+                        <span class="text-slate-400 text-[10px] font-mono">Act4_選擇放下的勇氣.pdf</span>
+                    </div>
+                    <h2 class="text-4xl font-bold mb-10">選擇暫時放下的勇氣</h2>
+                    <div class="quote-box serif">
+                        「我們的雙手容量有限，如果一直緊握著昨天的遺憾或明天的擔憂，就沒辦法接住今天的陽光。現在，請選出一件你這週一直扛在肩上的事情，試著在心裡對它說：『謝謝你的提醒，但我現在要先把你放下來，休息一下。』」
+                    </div>
+
+                    <div class="mt-12 grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-slate-800 mb-4">引導核心：心理邊界的建立</h4>
+                            <p class="text-slate-600 mb-6 leading-relaxed">
+                                學生常誤以為「負責」就是要把所有事情無時無刻扛在肩上。此活動旨在教導「暫停」與「邊界」的概念。放下不代表放棄，而是為了走更遠的路。</p>
+                            <ul class="space-y-2 text-sm text-slate-500">
+                                <li class="flex items-center gap-2">
+                                    <div class="w-1.5 h-1.5 bg-amber-400 rounded-full"></div> 區分「可控」與「不可控」的事物
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <div class="w-1.5 h-1.5 bg-amber-400 rounded-full"></div> 練習對焦慮喊停
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <div class="w-1.5 h-1.5 bg-amber-400 rounded-full"></div> 視覺化的「卸貨」想像
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-indigo-50 p-8 rounded-2xl">
+                            <h4 class="font-bold text-indigo-900 mb-4">📢 老師的話術建議</h4>
+                            <p class="italic text-indigo-800/70 text-sm mb-4">
+                                「這張紙就像一個臨時倉庫。我們可以把那些煩人的事情先寄放在這裡。它們不會消失，但你可以暫時不用背著它們走路。」</p>
+                            <p class="italic text-indigo-800/70 text-sm">「當你寫下來的時候，試著深吐一口氣。感覺一下肩膀是不是輕了一點點。」</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ss1 -->
+            <section id="ss1" class="content-section hidden bg-zen-mist">
+                <div class="content-card">
+                    <div class="badge-row"><span class="type-badge">STUDENT SHEET</span></div>
+                    <h2 class="text-4xl font-bold mb-6">S1 重量探測單</h2>
+                    <p class="text-slate-600 mb-8 max-w-2xl">透過視覺化的標記，讓學生具體化心中的負擔。這是一個非文字的覺察練習，幫助學生將模糊的焦慮具體化為可視的圖像。</p>
+
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-6">
+                            <h4 class="font-bold text-slate-800">工作紙內容重點：</h4>
+                            <ul class="space-y-3 text-sm text-slate-500">
+                                <li class="flex gap-3">
+                                    <span class="font-bold text-slate-300">01</span>
+                                    <span>人體輪廓圖：學生在感覺沉重的地方（如頭部、以及肩膀）塗色或畫圈。</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="font-bold text-slate-300">02</span>
+                                    <span>命名石頭：在旁邊空白處，寫下那顆「石頭」的名字（例如：數學考試、跟朋友吵架）。</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="font-bold text-slate-300">03</span>
+                                    <span>能量百分比：下方有一條能量條，請學生塗滿代表目前的心理電量。</span>
+                                </li>
+                            </ul>
+                            <div class="mt-8">
+                                <button onclick="openPreview('print-combined-1-2', 'S1 預覽')"
+                                    class="px-6 py-3 bg-slate-800 text-white rounded-xl font-bold hover:bg-slate-700 transition w-full md:w-auto">👀
+                                    查看 A4 完整預覽</button>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-slate-50 border-2 border-dashed border-slate-200 rounded-2xl aspect-[3/4] flex items-center justify-center p-8">
+                            <div class="text-center">
+                                <div
+                                    class="w-16 h-16 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl">
+                                    🧘</div>
+                                <p class="text-slate-400 font-bold">S1 預覽區域</p>
+                                <p class="text-xs text-slate-400 mt-2">點擊按鈕查看完整內容</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ss2 -->
+            <section id="ss2" class="content-section hidden bg-zen-mist">
+                <div class="content-card">
+                    <div class="badge-row"><span class="type-badge">STUDENT SHEET</span></div>
+                    <h2 class="text-4xl font-bold mb-6">S2 善意觀察紀錄紙</h2>
+                    <p class="text-slate-600 mb-8 max-w-2xl">捕捉班級中微小但真實的溫暖瞬間。練習將注意力轉向積極的連結，平衡大腦對負面訊息的偏誤。</p>
+
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-6">
+                            <h4 class="font-bold text-slate-800">工作紙內容重點：</h4>
+                            <ul class="space-y-3 text-sm text-slate-500">
+                                <li class="flex gap-3">
+                                    <span class="font-bold text-slate-300">01</span>
+                                    <span>搜集善意：三個空白的拍立得框框，邀請學生畫下或寫下這週看見的三個好事。</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="font-bold text-slate-300">02</span>
+                                    <span>主角是誰：誰釋出了善意？誰接收了善意？</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="font-bold text-slate-300">03</span>
+                                    <span>我的感受：當我看見這一幕時，我心裡的感覺是？（提供情緒詞彙庫供圈選）</span>
+                                </li>
+                            </ul>
+                            <div class="mt-8">
+                                <button onclick="openPreview('print-combined-1-2', 'S2 預覽')"
+                                    class="px-6 py-3 bg-slate-800 text-white rounded-xl font-bold hover:bg-slate-700 transition w-full md:w-auto">👀
+                                    查看 A4 完整預覽</button>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-slate-50 border-2 border-dashed border-slate-200 rounded-2xl aspect-[3/4] flex items-center justify-center p-8">
+                            <div class="text-center">
+                                <div
+                                    class="w-16 h-16 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl">
+                                    ❤️</div>
+                                <p class="text-slate-400 font-bold">S2 預覽區域</p>
+                                <p class="text-xs text-slate-400 mt-2">點擊按鈕查看完整內容</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ss3 -->
+            <section id="ss3" class="content-section hidden bg-zen-mist">
+                <div class="content-card">
+                    <div class="badge-row"><span class="type-badge">STUDENT SHEET</span></div>
+                    <h2 class="text-4xl font-bold mb-6">S3 時空信封紙</h2>
+                    <p class="text-slate-600 mb-8 max-w-2xl">寫給未來自己的勇氣膠囊。透過視角切換，緩解當下的情緒張力，讓學生明白「現在的困難終將過去」。</p>
+
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-6">
+                            <h4 class="font-bold text-slate-800">工作紙內容重點：</h4>
+                            <ul class="space-y-3 text-sm text-slate-500">
+                                <li class="flex gap-3">
+                                    <span class="font-bold text-slate-300">01</span>
+                                    <span>開啟時間：右上角設有「建議開啟日期」，設定為一年後的今天。</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="font-bold text-slate-300">02</span>
+                                    <span>給未來的提示句：如「你還記得當時為了...而煩惱嗎？」、「我想告訴你，我撐過來了」。</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="font-bold text-slate-300">03</span>
+                                    <span>信紙背景：淡淡的網格設計，提供安定的書寫引導。</span>
+                                </li>
+                            </ul>
+                            <div class="mt-8">
+                                <button onclick="openPreview('print-combined-3-4', 'S3 預覽')"
+                                    class="px-6 py-3 bg-slate-800 text-white rounded-xl font-bold hover:bg-slate-700 transition w-full md:w-auto">👀
+                                    查看 A4 完整預覽</button>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-slate-50 border-2 border-dashed border-slate-200 rounded-2xl aspect-[3/4] flex items-center justify-center p-8">
+                            <div class="text-center">
+                                <div
+                                    class="w-16 h-16 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl">
+                                    ✉️</div>
+                                <p class="text-slate-400 font-bold">S3 預覽區域</p>
+                                <p class="text-xs text-slate-400 mt-2">點擊按鈕查看完整內容</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ss4 -->
+            <section id="ss4" class="content-section hidden bg-zen-mist">
+                <div class="content-card">
+                    <div class="badge-row"><span class="type-badge">STUDENT SHEET</span></div>
+                    <h2 class="text-4xl font-bold mb-6">S4 釋放清單單</h2>
+                    <p class="text-slate-600 mb-8 max-w-2xl">辨識什麼是「必要的承載」，什麼是可以「暫時放下」的。這是一個關於選擇與邊界的練習。</p>
+
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-6">
+                            <h4 class="font-bold text-slate-800">工作紙內容重點：</h4>
+                            <ul class="space-y-3 text-sm text-slate-500">
+                                <li class="flex gap-3">
+                                    <span class="font-bold text-slate-300">01</span>
+                                    <span>待辦事項 vs. 待放事項：左邊是「必須做的事」，右邊是「可以暫時不擔心的事」。</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="font-bold text-slate-300">02</span>
+                                    <span>釋放宣言：寫下後，在心裡默唸「我允許自己暫時放下...」。</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="font-bold text-slate-300">03</span>
+                                    <span>留白區：底部留有空白，讓學生畫出放下重擔後的自己。</span>
+                                </li>
+                            </ul>
+                            <div class="mt-8">
+                                <button onclick="openPreview('print-combined-3-4', 'S4 預覽')"
+                                    class="px-6 py-3 bg-slate-800 text-white rounded-xl font-bold hover:bg-slate-700 transition w-full md:w-auto">👀
+                                    查看 A4 完整預覽</button>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-slate-50 border-2 border-dashed border-slate-200 rounded-2xl aspect-[3/4] flex items-center justify-center p-8">
+                            <div class="text-center">
+                                <div
+                                    class="w-16 h-16 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl">
+                                    🕊️</div>
+                                <p class="text-slate-400 font-bold">S4 預覽區域</p>
+                                <p class="text-xs text-slate-400 mt-2">點擊按鈕查看完整內容</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ss-all -->
+            <section id="ss-all" class="content-section hidden bg-zen-mist">
+                <div class="content-card">
+                    <div class="badge-row"><span class="type-badge">DOWNLOAD CENTER</span></div>
+                    <h2 class="text-4xl font-bold mb-6">學生工作紙檔案下載區</h2>
+                    <p class="text-slate-500 mb-10">整合為 A4 格式，方便老師直接列印（每張 A4 包含兩個單元）。</p>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="action-card border-2 border-amber-100 bg-amber-50/30">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="font-bold text-amber-900">合併檔 A (S1 + S2)</span>
+                                <span class="text-[10px] bg-amber-200 text-amber-900 px-2 py-1 rounded">A4 PDF</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mb-6">適用情境：活動前半段，聚焦於覺察與觀察。</p>
+                            <div class="flex gap-3 mt-4">
+                                <button onclick="openPreview('print-combined-1-2', '合併檔 A 預覽')"
+                                    class="flex-1 py-3 bg-white border border-amber-200 text-amber-700 rounded-xl font-bold hover:bg-amber-50">👀
+                                    預覽</button>
+                                <button onclick="triggerDownload('print-combined-1-2', '工作紙A.pdf')"
+                                    class="flex-1 py-3 bg-amber-500 text-white rounded-xl font-bold hover:bg-amber-600">📥
+                                    下載</button>
+                            </div>
+                        </div>
+                        <div class="action-card border-2 border-indigo-100 bg-indigo-50/30">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="font-bold text-indigo-900">合併檔 B (S3 + S4)</span>
+                                <span class="text-[10px] bg-indigo-200 text-indigo-900 px-2 py-1 rounded">A4 PDF</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mb-6">適用情境：活動後半段，聚焦於轉化與釋放。</p>
+                            <div class="flex gap-3 mt-4">
+                                <button onclick="openPreview('print-combined-3-4', '合併檔 B 預覽')"
+                                    class="flex-1 py-3 bg-white border border-indigo-200 text-indigo-700 rounded-xl font-bold hover:bg-indigo-50">👀
+                                    預覽</button>
+                                <button onclick="triggerDownload('print-combined-3-4', '工作紙B.pdf')"
+                                    class="flex-1 py-3 bg-indigo-500 text-white rounded-xl font-bold hover:bg-indigo-600">📥
+                                    下載</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AI Tools (Correctly Placed) -->
+            <section id="ai-tools" class="content-section hidden bg-zen-stone">
+                <!-- 加深卡片背景，確保對比度 -->
+                <div class="content-card" style="background-color: rgba(0, 0, 0, 0.6);">
+                    <div class="badge-row">
+                        <span class="type-badge">AI ASSISTANT</span>
+                        <span class="text-slate-300 text-[10px] font-mono tracking-widest">GEMINI-2.5-FLASH</span>
+                    </div>
+
+                    <div class="flex justify-between items-start mb-8">
+                        <div>
+                            <h2 class="text-4xl font-black mb-2 text-white">Gemini 智慧引導助理</h2>
+                            <p class="text-slate-300 text-sm">量身打造溫潤的引導語，為不同的班級氛圍注入生命力。</p>
+                        </div>
+                        <!-- API Key Status / Input Toggle -->
+                        <div class="flex flex-col items-end">
+                            <button onclick="toggleApiKeyInput()" id="api-status-btn"
+                                class="text-xs bg-slate-800 hover:bg-slate-700 px-3 py-1 rounded text-slate-300 border border-slate-600 transition">
+                                🔑 設定 API Key
+                            </button>
+                            <div id="api-key-panel"
+                                class="hidden mt-2 p-2 bg-slate-800 rounded border border-slate-600 absolute right-12 top-24 z-50 shadow-xl w-64">
+                                <p class="text-[10px] text-slate-300 mb-1">請輸入您的 Google Gemini API Key</p>
+                                <input type="password" id="user-api-key"
+                                    class="w-full bg-slate-900 border border-slate-600 rounded px-2 py-1 text-xs text-white mb-2"
+                                    placeholder="AIzq...">
+                                <button onclick="saveApiKey()"
+                                    class="w-full bg-amber-600 hover:bg-amber-500 text-white text-xs py-1 rounded font-bold">儲存並啟用</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-xs font-bold text-amber-500 uppercase tracking-widest mb-3">01
+                                    選擇活動單元</label>
+                                <select id="ai-activity"
+                                    class="ai-input w-full p-4 rounded-xl bg-slate-900 border-2 border-slate-700 text-white font-medium focus:border-amber-500 focus:outline-none transition-colors appearance-none cursor-pointer">
+                                    <option value="A1">Act 1 - 在黑暗中感覺重量</option>
+                                    <option value="A2">Act 2 - 看不見彼此的善意</option>
+                                    <option value="A3">Act 3 - 寫給未來的情書</option>
+                                    <option value="A4">Act 4 - 選擇放下的勇氣</option>
+                                    <option value="General">通用單元 - 隨機引導</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-amber-500 uppercase tracking-widest mb-3">02
+                                    今日班級情境</label>
+                                <textarea id="ai-context"
+                                    class="ai-input w-full p-4 rounded-xl bg-slate-900 border-2 border-slate-700 text-white placeholder-slate-500 font-medium focus:border-amber-500 focus:outline-none transition-colors min-h-[120px]"
+                                    placeholder="例如：明天就是段考，班上氣氛非常緊繃..."></textarea>
+                            </div>
+                            <button onclick="generateAIScript()"
+                                class="ai-submit-btn group w-full py-4 bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-bold rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 border border-amber-500/50">
+                                <svg class="w-5 h-5 group-hover:rotate-12 transition" fill="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2Z" />
+                                </svg>
+                                生成特定活動逐字稿
+                            </button>
+                        </div>
+
+                        <div class="relative">
+                            <div id="ai-loading"
+                                class="hidden absolute inset-0 bg-slate-950/90 rounded-2xl flex flex-col items-center justify-center z-20 backdrop-blur-sm">
+                                <div
+                                    class="w-10 h-10 border-4 border-amber-500 border-t-transparent rounded-full animate-spin">
+                                </div>
+                                <p class="mt-4 text-xs tracking-widest uppercase text-amber-500 font-bold">正在連結靈感...</p>
+                            </div>
+                            <div id="ai-result"
+                                class="h-full min-h-[350px] p-8 bg-slate-900 border-2 border-slate-800 rounded-2xl text-slate-200 italic serif text-lg leading-relaxed shadow-inner overflow-y-auto">
+                                <div
+                                    class="h-full flex flex-col items-center justify-center text-slate-500 text-center px-4">
+                                    <svg class="w-12 h-12 mb-4 opacity-20" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+                                    </svg>
+                                    <p class="text-sm font-sans italic opacity-60">等待引導靈中...<br>請在左側選擇活動並描述情境。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="appendices" class="content-section hidden bg-zen-mist">
+                <div class="content-card">
+                    <h2 class="text-4xl font-bold mb-10 italic">附錄：時間彈性配置方案</h2>
+                    <ul class="space-y-4 text-slate-600">
+                        <li>🕰️ <strong>快閃版 (10min)</strong>：僅進行引導語朗讀與 3 分鐘默想。</li>
+                        <li>📅 <strong>標準版 (20min)</strong>：引導語 + 工作紙前半部分筆耕。</li>
+                        <li>🧬 <strong>深度版 (40min)</strong>：完整引導 + 完整工作紙 + 班級小組無聲分享。</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Hidden Print Targets (The actual A4 content for printing) -->
+            <div class="hidden">
+                <!-- Combined A: S1 + S2 -->
+                <div id="print-combined-1-2" class="bg-white p-8 box-border"
+                    style="width: 210mm; min-height: 297mm; font-family: 'Noto Sans TC', sans-serif;">
+                    <!-- S1 Section -->
+                    <div
+                        style="height: 140mm; border-bottom: 2px dashed #e5e7eb; margin-bottom: 10mm; padding-bottom: 5mm;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1rem;">
+                            <h2 style="font-size: 24pt; font-weight: 800; color: #1f2937;">S1 重量探測單</h2>
+                            <span style="font-size: 10pt; color: #9ca3af;">Act 1</span>
+                        </div>
+                        <p style="font-size: 11pt; color: #6b7280; margin-bottom: 1rem;">
+                            閉上眼，感受一下你背上的「隱形背包」。重量集中在哪裡？請在下圖中圈出來。</p>
+
+                        <div
+                            style="height: 90mm; border: 2px solid #f3f4f6; border-radius: 12px; display: flex; align-items: center; justify-content: center; position: relative;">
+                            <div style="position: absolute; top: 10px; right: 10px; font-size: 10pt; color: #d1d5db;">
+                                請在此作畫</div>
+                            <!-- Simple SVG Body Outline Placeholder -->
+                            <svg width="150" height="300" viewBox="0 0 100 200" style="opacity: 0.1;">
+                                <path
+                                    d="M50 20 C65 20 70 30 70 40 C70 50 65 55 50 55 C35 55 30 50 30 40 C30 30 35 20 50 20 Z"
+                                    fill="none" stroke="black" stroke-width="2" />
+                                <path d="M50 55 L50 120" fill="none" stroke="black" stroke-width="2" />
+                                <path d="M30 60 L70 60" fill="none" stroke="black" stroke-width="2" />
+                                <path d="M50 120 L30 180" fill="none" stroke="black" stroke-width="2" />
+                                <path d="M50 120 L70 180" fill="none" stroke="black" stroke-width="2" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- S2 Section -->
+                    <div style="height: 135mm;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1rem;">
+                            <h2 style="font-size: 24pt; font-weight: 800; color: #1f2937;">S2 善意觀察紀錄紙</h2>
+                            <span style="font-size: 10pt; color: #9ca3af;">Act 2</span>
+                        </div>
+                        <p style="font-size: 11pt; color: #6b7280; margin-bottom: 1rem;">
+                            回想這週，有沒有一個微小的瞬間讓你感到溫暖？請把它「抓」下來，放在相框裡。</p>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div
+                                style="height: 50mm; border: 2px solid #1f2937; padding: 10px; display: flex; flex-direction: column;">
+                                <div style="flex: 1; border: 1px solid #eee;"></div>
+                                <p style="font-size: 9pt; color: #9ca3af; margin-top: 5px;">瞬間 A</p>
+                            </div>
+                            <div
+                                style="height: 50mm; border: 2px solid #1f2937; padding: 10px; display: flex; flex-direction: column;">
+                                <div style="flex: 1; border: 1px solid #eee;"></div>
+                                <p style="font-size: 9pt; color: #9ca3af; margin-top: 5px;">瞬間 B</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1rem; padding: 1rem; background: #f9fafb; border-radius: 8px;">
+                            <p style="font-size: 10pt; color: #4b5563; font-weight: bold;">我的觀察：</p>
+                            <p style="border-bottom: 1px solid #e5e7eb; margin-top: 2rem;"></p>
+                            <p style="border-bottom: 1px solid #e5e7eb; margin-top: 2rem;"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Combined B: S3 + S4 -->
+                <div id="print-combined-3-4" class="bg-white p-8 box-border"
+                    style="width: 210mm; min-height: 297mm; font-family: 'Noto Sans TC', sans-serif;">
+                    <!-- S3 Section -->
+                    <div
+                        style="height: 140mm; border-bottom: 2px dashed #e5e7eb; margin-bottom: 10mm; padding-bottom: 5mm;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1rem;">
+                            <h2 style="font-size: 24pt; font-weight: 800; color: #1f2937;">S3 時空信箱</h2>
+                            <span style="font-size: 10pt; color: #9ca3af;">Act 3</span>
+                        </div>
+                        <div
+                            style="border: 2px solid #1f2937; padding: 2rem; height: 110mm; border-radius: 4px; position: relative;">
+                            <div
+                                style="position: absolute; top: 1rem; right: 1rem; border: 1px solid #000; padding: 0.5rem; font-size: 9pt;">
+                                開啟日期：202__ 年 ___ 月 ___ 日
+                            </div>
+                            <p style="font-size: 12pt; font-weight: bold; margin-bottom: 2rem;">親愛的一年後的我：</p>
+
+                            <div
+                                style="line-height: 2.5rem; background-image: repeating-linear-gradient(transparent, transparent 39px, #e5e7eb 40px); background-size: 100% 40px;">
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- S4 Section -->
+                    <div style="height: 135mm;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1rem;">
+                            <h2 style="font-size: 24pt; font-weight: 800; color: #1f2937;">S4 釋放空間清單</h2>
+                            <span style="font-size: 10pt; color: #9ca3af;">Act 4</span>
+                        </div>
+                        <p style="font-size: 11pt; color: #6b7280; margin-bottom: 2rem;">
+                            有些事情今天做不完也沒關係。請寫下來，然後暫時把它們留在這張紙上。</p>
+
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div style="width: 20px; height: 20px; border: 2px solid #1f2937; border-radius: 50%;">
+                                </div>
+                                <div style="flex: 1; border-bottom: 1px solid #374151; height: 30px;"></div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div style="width: 20px; height: 20px; border: 2px solid #1f2937; border-radius: 50%;">
+                                </div>
+                                <div style="flex: 1; border-bottom: 1px solid #374151; height: 30px;"></div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div style="width: 20px; height: 20px; border: 2px solid #1f2937; border-radius: 50%;">
+                                </div>
+                                <div style="flex: 1; border-bottom: 1px solid #374151; height: 30px;"></div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div style="width: 20px; height: 20px; border: 2px solid #1f2937; border-radius: 50%;">
+                                </div>
+                                <div style="flex: 1; border-bottom: 1px solid #374151; height: 30px;"></div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div style="width: 20px; height: 20px; border: 2px solid #1f2937; border-radius: 50%;">
+                                </div>
+                                <div style="flex: 1; border-bottom: 1px solid #374151; height: 30px;"></div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 3rem; text-align: center; color: #9ca3af; font-style: italic;">
+                            「我允許自己暫時休息。」
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preview Modal -->
+            <div id="preview-modal" class="modal-overlay" onclick="closePreview()">
+                <div class="modal-container" onclick="event.stopPropagation()">
+                    <div class="modal-header">
+                        <h3 id="modal-title" class="font-bold text-slate-800">PDF 預覽</h3>
+                        <button onclick="closePreview()" class="text-slate-400 hover:text-slate-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="preview-container"></div>
+                    <div class="p-4 border-t border-slate-100 flex justify-center bg-white">
+                        <button onclick="closePreview()"
+                            class="px-8 py-3 bg-slate-800 text-white rounded-xl font-bold">關閉預覽</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

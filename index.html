@@ -9,6 +9,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
         rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <link rel="stylesheet" href="/src/index.css">
 </head>
 
@@ -665,18 +666,18 @@
                             閉上眼，感受一下你背上的「隱形背包」。重量集中在哪裡？請在下圖中圈出來。</p>
 
                         <div
-                            style="height: 90mm; border: 2px solid #f3f4f6; border-radius: 12px; display: flex; align-items: center; justify-content: center; position: relative;">
-                            <div style="position: absolute; top: 10px; right: 10px; font-size: 10pt; color: #d1d5db;">
-                                請在此作畫</div>
-                            <!-- Simple SVG Body Outline Placeholder -->
-                            <svg width="150" height="300" viewBox="0 0 100 200" style="opacity: 0.1;">
-                                <path
-                                    d="M50 20 C65 20 70 30 70 40 C70 50 65 55 50 55 C35 55 30 50 30 40 C30 30 35 20 50 20 Z"
-                                    fill="none" stroke="black" stroke-width="2" />
-                                <path d="M50 55 L50 120" fill="none" stroke="black" stroke-width="2" />
-                                <path d="M30 60 L70 60" fill="none" stroke="black" stroke-width="2" />
-                                <path d="M50 120 L30 180" fill="none" stroke="black" stroke-width="2" />
-                                <path d="M50 120 L70 180" fill="none" stroke="black" stroke-width="2" />
+                            style="height: 100mm; border: 2px solid #e5e7eb; border-radius: 12px; display: flex; align-items: center; justify-content: center; position: relative; background-color: #f9fafb;">
+                            <div
+                                style="position: absolute; top: 10px; right: 10px; font-size: 10pt; color: #9ca3af; font-weight: bold;">
+                                請在此作畫 ✏️</div>
+                            <svg width="200" height="350" viewBox="0 0 100 200"
+                                style="opacity: 0.6; overflow: visible;">
+                                <circle cx="50" cy="30" r="12" fill="none" stroke="#6b7280" stroke-width="2.5" />
+                                <path d="M50 42 L50 110" fill="none" stroke="#6b7280" stroke-width="2.5" />
+                                <path d="M20 70 L50 50 L80 70" fill="none" stroke="#6b7280" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M30 170 L50 110 L70 170" fill="none" stroke="#6b7280" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
                     </div>

@@ -162,45 +162,83 @@ window.toggleApiKeyInput = function () {
 // PDF Preview & Download Logic
 // -------------------------------------------------------------
 
-// Map PDF IDs to real file paths
-const pdfMap = {
-    'tg1': 'TG1_Weight_v1.pdf',
-    'tg2': 'TG2_Kindness_v1.pdf',
-    'tg3': 'TG3_Future_v1.pdf',
-    'tg4': 'TG4_LettingGo_v1.pdf',
-    'ss1': 'SS1_Worksheet_v1.pdf',
-    'ss2': 'SS2_Worksheet_v1.pdf',
-    'ss3': 'SS3_Worksheet_v1.pdf',
-    'ss4': 'SS4_Worksheet_v1.pdf',
-    'ss1-2': 'SS_Combined_1_2.pdf', // Combined
-    'ss3-4': 'SS_Combined_3_4.pdf'  // Combined
+// Map IDs to output filenames
+const filenameMap = {
+    'print-combined-1-2': '靜默反思_工作紙A_S1+S2.pdf',
+    'print-combined-3-4': '靜默反思_工作紙B_S3+S4.pdf'
 };
 
 window.triggerDownload = function (id) {
-    alert("功能演示：這裡將觸發下載 " + (pdfMap[id] || id));
-    // Implementation: window.location.href = '/downloads/' + pdfMap[id];
+    const element = document.getElementById(id);
+    if (!element) return alert("找不到檔案來源");
+
+    // 顯示下載中的提示
+    const btn = event.currentTarget;
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '⏳ 處理中...';
+    btn.disabled = true;
+
+    const opt = {
+        margin: 0,
+        filename: filenameMap[id] || 'download.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().set(opt).from(element).save().then(() => {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+    });
 }
 
-window.openPreview = function (id) {
+window.openPreview = function (id, title) {
     const modal = document.getElementById('preview-modal');
     const container = document.getElementById('preview-container');
+    const modalTitle = document.getElementById('modal-title');
+    const sourceElement = document.getElementById(id);
 
-    modal.classList.remove('hidden');
-    // For now, we simulate preview with a placeholder or iframe
-    container.innerHTML = `
-        <div class="flex flex-col items-center justify-center h-full text-slate-400">
-            <p class="text-xl font-bold mb-4">📄 預覽模式</p>
-            <p>正在載入 ${pdfMap[id] || id} ...</p>
-            <div class="mt-8 w-3/4 h-3/4 bg-white shadow-lg flex items-center justify-center text-slate-300">
-                [ PDF Content Placeholder ]
-            </div>
-        </div>
-    `;
+    if (!sourceElement) return;
+
+    modalTitle.innerText = title || '預覽';
+    // Use 'active' class to trigger CSS transition visibility
+    modal.classList.add('active');
+
+    // Clear previous content
+    container.innerHTML = '';
+
+    // Clone the print content for preview
+    const clone = sourceElement.cloneNode(true);
+
+    // Remove "hidden" class just in case the source had it (though the wrapper hides it)
+    clone.classList.remove('hidden');
+
+    // Apply scaling for preview (A4 is big, so we scale it down to fit screen)
+    // We wrap it in a scaler div
+    const wrapper = document.createElement('div');
+    wrapper.className = "flex justify-center bg-slate-100/50 p-4 overflow-auto custom-scrollbar";
+    wrapper.style.minHeight = "400px";
+
+    // CSS Zoom or Scale
+    // Creating a container that mimics the A4 ratio
+    clone.style.transform = "scale(0.55)";
+    clone.style.transformOrigin = "top center";
+    clone.style.display = "block"; // 強制顯示
+    clone.style.backgroundColor = "white"; // 強制白底
+    clone.style.margin = "0 auto"; // 居中
+    clone.style.boxShadow = "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)";
+
+    // 確保父容器有足夠高度來容納縮放後的 A4
+    // A4 height ~1123px * 0.55 ~ 617px
+    wrapper.style.height = "650px";
+
+    wrapper.appendChild(clone);
+    container.appendChild(wrapper);
 }
 
 window.closePreview = function () {
     const modal = document.getElementById('preview-modal');
-    modal.classList.add('hidden');
+    modal.classList.remove('active');
 }
 
 // -------------------------------------------------------------
